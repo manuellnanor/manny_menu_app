@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import type { CartItem } from "@/types";
 
 function makeOrderNumber() {
   const now = new Date();
@@ -16,7 +17,9 @@ export async function POST(request: Request) {
   const customerPhone = String(body.customerPhone ?? "").trim();
   const address = String(body.address ?? "").trim();
   const notes = String(body.notes ?? "").trim();
-  const items = Array.isArray(body.items) ? body.items : [];
+  const items: Pick<CartItem, "productId" | "quantity">[] = Array.isArray(body.items)
+    ? body.items
+    : [];
 
   if (!restaurantSlug || !customerName || !customerPhone || !items.length) {
     return NextResponse.json(
@@ -53,7 +56,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const productIds = items.map((item: any) => item.productId);
+  const productIds = items.map((item) => item.productId);
 
   const { data: products, error: productError } = await supabase
     .from("products")
@@ -68,7 +71,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const verifiedItems = items.map((item: any) => {
+  const verifiedItems = items.map((item) => {
     const product = products.find((p) => p.id === item.productId);
 
     if (!product || !product.is_available) {
