@@ -16,6 +16,7 @@ export default function HomePage() {
           QuickMenu<span className="text-[#bb4824]">.</span>
         </Link>
         <nav aria-label="Main navigation" className="flex items-center gap-7 text-sm">
+          <Link href="/login" className="hover:text-[#bb4824]">Log in</Link>
           <a href="#how-it-works" className="hidden hover:text-[#bb4824] sm:block">How it works</a>
           <Link href="/demo-restaurant" className="flex items-center gap-1.5 hover:text-[#bb4824]">Explore the demo <ArrowUpRight size={16} /></Link>
         </nav>
