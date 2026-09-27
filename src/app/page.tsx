@@ -43,7 +43,17 @@ export default function HomePage() {
         </div>
         <div className="relative isolate mx-auto flex min-w-0 w-full max-w-md justify-center px-5 py-8">
           <div aria-hidden="true" className="absolute inset-x-0 bottom-12 top-12 -z-10 rounded-[50%] bg-[#f47746]" />
-          <div aria-hidden="true" className="absolute inset-x-3 bottom-9 top-9 -z-10 rotate-[-12deg] rounded-[50%] border border-[#e5b69e]" />
+          {/* Rotate the drawing, not an HTML box that enlarges page scroll bounds. */}
+          <svg aria-hidden="true" focusable="false" className="pointer-events-none absolute inset-0 -z-10 h-full w-full">
+            <ellipse
+              cx="50%"
+              cy="50%"
+              fill="none"
+              stroke="#e5b69e"
+              strokeWidth="1"
+              style={{ rx: "calc(50% - 12px)", ry: "calc(50% - 36px)", transform: "rotate(-12deg)", transformOrigin: "center" }}
+            />
+          </svg>
           <div className="w-full max-w-[290px] rotate-[-3deg] rounded-[36px] border-[7px] border-[#242522] bg-white p-4 shadow-[0_24px_60px_-25px_rgba(36,37,34,0.45)]">
             <div aria-hidden="true" className="mx-auto mb-5 h-4 w-20 rounded-full bg-[#242522]" />
             <div className="rounded-2xl bg-[#fff0e8] p-4">
