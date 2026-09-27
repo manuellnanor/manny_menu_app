@@ -46,7 +46,7 @@ const demoProducts: Product[] = [
     slug: "jollof-rice",
     description: "Jollof rice served with grilled chicken.",
     price: 65,
-    image_url: null,
+    image_url: "/images/demo/jollof-rice.webp",
     is_available: true
   },
   {
@@ -57,7 +57,7 @@ const demoProducts: Product[] = [
     slug: "pineapple-juice",
     description: "Chilled fresh pineapple juice.",
     price: 20,
-    image_url: null,
+    image_url: "/images/demo/pineapple-juice.webp",
     is_available: true
   }
 ];
