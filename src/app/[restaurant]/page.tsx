@@ -121,6 +121,7 @@ export default async function RestaurantPage({
         style={{ backgroundColor: restaurant.primary_color }}
       >
         <div className="mx-auto max-w-5xl">
+          {restaurant.logo_url && <img src={restaurant.logo_url} alt={`${restaurant.name} logo`} className="mb-5 h-20 w-20 rounded-2xl bg-white object-contain p-1" />}
           <p className="text-sm uppercase tracking-[0.25em] text-white/60">
             Digital Menu
           </p>

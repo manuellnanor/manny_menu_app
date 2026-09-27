@@ -23,7 +23,7 @@ export default function SignupPage({ initialSigningIn = false }: { initialSignin
     const restaurant = data?.[0]?.restaurants;
     const menu = Array.isArray(restaurant) ? restaurant[0] : restaurant;
     if (menu?.slug) {
-      window.location.assign(`/${encodeURIComponent(menu.slug)}`);
+      window.location.assign(`/dashboard/${encodeURIComponent(menu.slug)}`);
       return;
     }
     setStep("restaurant");
@@ -91,7 +91,7 @@ export default function SignupPage({ initialSigningIn = false }: { initialSignin
     }
 
     const result = await response.json();
-    window.location.href = `/${result.restaurant.slug}`;
+    window.location.href = `/dashboard/${encodeURIComponent(result.restaurant.slug)}`;
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Unable to create restaurant. Please try again.");
     } finally {

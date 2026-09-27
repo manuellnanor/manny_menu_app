@@ -1,3 +1,5 @@
+-- Initial setup only. After this file, run migrations/20260927_restaurant_dashboard.sql
+-- to enable dashboard uploads and secure restaurant ownership creation.
 create extension if not exists "uuid-ossp";
 
 create table if not exists public.restaurants (
